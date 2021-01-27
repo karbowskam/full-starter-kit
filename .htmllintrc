@@ -1,0 +1,15 @@
+{
+    "attr-req-value": false,
+    "fieldset-contains-legend": true,
+    "head-req-title": true,
+    "html-req-lang": true,
+    "img-req-src": false,
+    "id-class-style": "bem",
+    "indent-style": "spaces",
+    "indent-width": 2,
+    "line-end-style": false,
+    "tag-name-lowercase": true,
+    "title-max-len": 120
+
+    
+}
