@@ -9,7 +9,10 @@
     "indent-width": 2,
     "line-end-style": false,
     "tag-name-lowercase": true,
-    "title-max-len": 120
+    "title-max-len": 120,
+    "tag-bans": [],
+    "attr-bans": [],
+    "attr-name-style": false
 
     
 }

@@ -7,6 +7,9 @@ const htmllint =      require('gulp-htmllint');
 const fancyLog =      require('fancy-log');
 const colors =        require('ansi-colors');
 var map =             require('map-stream');
+var sass = require('gulp-sass');
+sass.compiler = require('node-sass');
+const autoprefixer = require('gulp-autoprefixer');
 
 const srcPathCSS =    "src/scss/*.scss";
 const srcPathHTML =   "src/**/*.html";
@@ -27,23 +30,9 @@ const task = {
    },
    validateCSS(){
       return gulp.src(srcPathCSS)
-         .pipe(cssValidator())
-         .pipe(map(function(file, done) {
-            if (file.contents.length > 0) {
-               var issues = JSON.parse(file.contents.toString());
-               if(issues.errors.length > 0){
-                  issues.errors.forEach(function (issue) {
-                     fancy("gulp-css", issue.message, file.path, issue.line, "", issue.errorType);
-                  });
-                  process.exitCode = 1;
-               }
-               
-               issues.warnings.forEach(function (issue) {
-                  fancy("gulp-css", issue.message, file.path, issue.line, "", issue.errorType);
-                });
-            }
-            done(null, file);
-          }));
+         .pipe(sass().on('error', sass.logError))
+         .pipe( autoprefixer({} ) );
+         
    },
    validateHtml() {
       return gulp.src(srcPathHTML)
