@@ -1,0 +1,17 @@
+name: Test pull request
+on: [pull_request]
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+
+      - name: Install Node
+        uses: actions/setup-node@v1
+
+      - name: Install project
+        run: npm install .
+
+      - name: Test and Lint
+        run: npm run test
