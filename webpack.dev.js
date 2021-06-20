@@ -44,4 +44,9 @@ module.exports = merge(common, {
     port: 8080,
     host: '0.0.0.0'
   },
+
+  performance: {
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  }
 });
